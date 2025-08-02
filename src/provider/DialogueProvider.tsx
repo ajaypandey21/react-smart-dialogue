@@ -44,13 +44,6 @@ export const DialogueProvider: React.FC<{ children: ReactNode }> = ({
         onConfirm={handleConfirm}
         onCancel={handleCancel}
         onClose={hideDialogue}
-        dialogueClassName={dialogueProps.dialogueClassName}
-        overlayClassName={dialogueProps.overlayClassName}
-        titleClassName={dialogueProps.titleClassName}
-        messageClassName={dialogueProps.messageClassName}
-        confirmButtonClassName={dialogueProps.confirmButtonClassName}
-        cancelButtonClassName={dialogueProps.cancelButtonClassName}
-        buttonsContainerClassName={dialogueProps.buttonsContainerClassName}
       />
     </DialogueContext.Provider>
   );
