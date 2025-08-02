@@ -27,16 +27,16 @@
     "component",
     "ui"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Ajay Pandey <pajay7686@gmal.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ajaypandey21/react-smart-dialogue.git"
   },
   "bugs": {
-    "url": "https://github.com/ajaypandey21/react-smart-dialogue.git/issues"
+    "url": "https://github.com/ajaypandey21/react-smart-dialogue/issues"
   },
-  "homepage": "https://github.com/ajaypandey21/react-smart-dialogue.git#readme",
+  "homepage": "https://github.com/ajaypandey21/react-smart-dialogue#readme",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
