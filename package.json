@@ -1,6 +1,6 @@
 {
   "name": "react-smart-dialogue",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A customizable and dynamic dialogue component for React with TypeScript and Tailwind CSS support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
