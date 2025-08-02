@@ -27,13 +27,14 @@ const DynamicDialogue: React.FC<DialogueProps> = ({
   onConfirm,
   onCancel,
   onClose,
-  dialogueClassName = "bg-white rounded-xl shadow-xl w-full max-w-md mx-4 p-6 transition-all duration-300",
-  overlayClassName = "fixed inset-0 bg-black/30 backdrop-blur-lg flex items-center justify-center z-50 min-h-screen",
-  titleClassName = "text-2xl font-bold text-gray-800 mb-4 text-center",
-  messageClassName = "text-gray-600 text-base mt-2 text-center leading-relaxed",
-  confirmButtonClassName = "px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-200 transition-all duration-200 shadow-lg hover:shadow-xl",
-  cancelButtonClassName = "px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-200 transition-all duration-200 border border-gray-300",
-  buttonsContainerClassName = "flex justify-end gap-4 pt-4",
+  // Beautiful default styling with proper padding and spacing
+  dialogueClassName = "bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden transform transition-all duration-300 border border-gray-100",
+  overlayClassName = "fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4",
+  titleClassName = "text-xl font-bold text-gray-800 px-6 pt-6 pb-2",
+  messageClassName = "text-gray-600 text-base px-6 pb-6 leading-relaxed",
+  confirmButtonClassName = "px-6 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-sm hover:shadow-md",
+  cancelButtonClassName = "px-6 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all duration-200 border border-gray-200",
+  buttonsContainerClassName = "flex justify-end gap-3 px-6 pb-6 pt-2",
 }) => {
   if (!isOpen) return null;
 

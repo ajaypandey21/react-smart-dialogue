@@ -1,4 +1,3 @@
-// src/hooks/useDialogue.ts
 import { useState, useCallback } from "react";
 
 export interface UseDialogueOptions {
@@ -6,6 +5,8 @@ export interface UseDialogueOptions {
   message: string;
   confirmText?: string;
   cancelText?: string;
+  onConfirm?: () => void;
+  onCancel?: () => void;
 }
 
 export const useDialogue = () => {
@@ -14,42 +15,35 @@ export const useDialogue = () => {
     title: "",
     message: "",
   });
-  const [resolvePromise, setResolvePromise] = useState<
-    ((value: boolean) => void) | null
-  >(null);
 
-  const showDialogue = useCallback(
-    (options: UseDialogueOptions): Promise<boolean> => {
-      setDialogueProps(options);
-      setIsOpen(true);
+  const showDialogue = useCallback((options: UseDialogueOptions) => {
+    setDialogueProps(options);
+    setIsOpen(true);
+  }, []);
 
-      return new Promise<boolean>((resolve) => {
-        setResolvePromise(() => resolve);
-      });
-    },
-    []
-  );
+  const hideDialogue = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   const handleConfirm = useCallback(() => {
-    setIsOpen(false);
-    if (resolvePromise) {
-      resolvePromise(true);
-      setResolvePromise(null);
+    if (dialogueProps.onConfirm) {
+      dialogueProps.onConfirm();
     }
-  }, [resolvePromise]);
+    setIsOpen(false);
+  }, [dialogueProps]);
 
   const handleCancel = useCallback(() => {
-    setIsOpen(false);
-    if (resolvePromise) {
-      resolvePromise(false);
-      setResolvePromise(null);
+    if (dialogueProps.onCancel) {
+      dialogueProps.onCancel();
     }
-  }, [resolvePromise]);
+    setIsOpen(false);
+  }, [dialogueProps]);
 
   return {
     isOpen,
     dialogueProps,
     showDialogue,
+    hideDialogue,
     handleConfirm,
     handleCancel,
   };

@@ -3,7 +3,9 @@ import { useDialogue, UseDialogueOptions } from "../hooks/useDialogue";
 import DynamicDialogue from "../components/DynamicDialogue";
 
 type DialogueContextType = {
-  showDialogue: (opts: UseDialogueOptions) => Promise<boolean>;
+  showDialogue: (opts: UseDialogueOptions) => void;
+  hideDialogue: () => void;
+  isOpen: boolean;
 };
 
 const DialogueContext = createContext<DialogueContextType | undefined>(
@@ -22,11 +24,17 @@ export function useDialogueContext() {
 export const DialogueProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const { isOpen, dialogueProps, showDialogue, handleConfirm, handleCancel } =
-    useDialogue();
+  const {
+    isOpen,
+    dialogueProps,
+    showDialogue,
+    hideDialogue,
+    handleConfirm,
+    handleCancel,
+  } = useDialogue();
 
   return (
-    <DialogueContext.Provider value={{ showDialogue }}>
+    <DialogueContext.Provider value={{ showDialogue, hideDialogue, isOpen }}>
       {children}
       <DynamicDialogue
         isOpen={isOpen}
