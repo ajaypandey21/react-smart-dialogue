@@ -179,4 +179,4 @@ This component is designed to work with Tailwind CSS. Make sure you have Tailwin
 
 ## License
 
-MIT © [Your Name]
+MIT © Ajay Pandey
