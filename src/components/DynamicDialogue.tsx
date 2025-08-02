@@ -16,7 +16,7 @@ const DynamicDialogue: React.FC<DialogueProps> = ({
   title,
   message,
   confirmText = "Confirm",
-  cancelText,
+  cancelText = "Cancel",
   onConfirm,
   onCancel,
   onClose,
@@ -26,7 +26,7 @@ const DynamicDialogue: React.FC<DialogueProps> = ({
 
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose?.();
+        onClose ? onClose() : onCancel();
       }
     };
 
@@ -37,19 +37,19 @@ const DynamicDialogue: React.FC<DialogueProps> = ({
       document.removeEventListener("keydown", handleEsc);
       document.body.style.overflow = "unset";
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, onCancel]);
 
   if (!isOpen) return null;
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
-      onClose?.();
+      onClose ? onClose() : onCancel();
     }
   };
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] p-4"
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[9999] px-4"
       onClick={handleOverlayClick}
       role="dialog"
       aria-modal="true"
@@ -57,7 +57,7 @@ const DynamicDialogue: React.FC<DialogueProps> = ({
       aria-describedby="dialogue-message"
     >
       <div
-        className="bg-white rounded-xl shadow-xl w-full max-w-md mx-auto transition-all duration-300 border border-gray-200"
+        className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden transition-all duration-300 border border-gray-200"
         onClick={(e) => e.stopPropagation()}
       >
         <h2
