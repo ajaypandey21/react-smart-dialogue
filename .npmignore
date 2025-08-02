@@ -1,0 +1,22 @@
+# Source files
+src/
+example/
+__tests__/
+docs/
+
+# Development files
+tsconfig.json
+rollup.config.js
+.gitignore
+*.md
+!README.md
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+
+# Development dependencies
+node_modules/
+coverage/
+*.log
