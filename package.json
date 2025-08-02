@@ -31,12 +31,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/react-dynamic-dialogue.git"
+    "url": "git+https://github.com/ajaypandey21/react-smart-dialogue.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/react-dynamic-dialogue/issues"
+    "url": "https://github.com/ajaypandey21/react-smart-dialogue.git/issues"
   },
-  "homepage": "https://github.com/yourusername/react-dynamic-dialogue#readme",
+  "homepage": "https://github.com/ajaypandey21/react-smart-dialogue.git#readme",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
